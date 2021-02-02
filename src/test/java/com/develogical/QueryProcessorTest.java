@@ -42,7 +42,7 @@ public class QueryProcessorTest {
 
     @Test
     public void multiplicationWorking() throws Exception{
-        assertThat(queryProcessor.process("what is 13 multiplied by 8"), containsString("104"));
+        assertThat(queryProcessor.process("8becb370: what is 13 multiplied by 8"), containsString("104"));
     }
 
     @Test
