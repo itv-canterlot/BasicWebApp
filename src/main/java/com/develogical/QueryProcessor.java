@@ -35,6 +35,9 @@ public class QueryProcessor {
         } else if (query.toLowerCase().contains("plus")){
             String[] splitedQuery = query.split(" ");
             return String.valueOf(Integer.parseInt(splitedQuery[splitedQuery.length - 3]) + Integer.parseInt(splitedQuery[splitedQuery.length-1]));
+        } else if (query.toLowerCase().contains("minus")){
+            String[] splitedQuery = query.split(" ");
+            return String.valueOf(Integer.parseInt(splitedQuery[splitedQuery.length - 3]) - Integer.parseInt(splitedQuery[splitedQuery.length-1]));
         } else if (query.toLowerCase().contains("which of the following numbers is the largest")) {
             String[] numbers = query.split(":")[1].trim().split(", ");
             int number1 = Integer.parseInt(numbers[0]);
