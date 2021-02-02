@@ -49,6 +49,10 @@ public class QueryProcessorTest {
     public void isLargestNumberMultiple() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 517, 30, 225"), containsString("517"));
     }
+    @Test
+    public void squareAndCube() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is a square and a cube: 3, 64"), containsString("64"));
+    }
 
     @Test
     public void ColourOfBanana() throws Exception {
