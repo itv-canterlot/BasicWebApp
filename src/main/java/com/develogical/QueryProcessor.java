@@ -35,6 +35,8 @@ public class QueryProcessor {
         }else if (query.toLowerCase().contains("multiplied")){
             String[] splitedQuery = query.split(" ");
             return String.valueOf(Integer.parseInt(splitedQuery[3])*Integer.parseInt(splitedQuery[splitedQuery.length-1]));
+        }else if (query.toLowerCase().contains("colour is a banana")){
+            return "yellow";
         }
         return "";
     }
