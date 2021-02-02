@@ -20,7 +20,8 @@ public class QueryProcessor {
         } else if (query.toLowerCase().contains("what is your name")) {
             return "Which github project do we use";
         } else if (query.toLowerCase().contains("which of the following numbers is the largest")) {
-            String[] numbers = query.split(":")[1].trim().split(", ");
+            String[] querySplitByColon = query.split(":");
+            String[] numbers = querySplitByColon[querySplitByColon.length - 1].trim().split(", ");
             int largestNumber = Integer.MIN_VALUE;
             for (int i = 0; i < numbers.length; i++) {
                 if (Integer.parseInt(numbers[i]) > largestNumber) {
