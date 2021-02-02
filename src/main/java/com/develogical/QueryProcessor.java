@@ -72,14 +72,19 @@ public class QueryProcessor {
             for (int i = 0; i < numbers.length; i++) {
                 int currentNumber = Integer.parseInt(numbers[i]);
                 if (currentNumber>=2) {
+                    boolean isPrime = true;
                     for(int j = 2; j < currentNumber; j++ ){
-                        if(currentNumber % j == 0)
-                            continue;
+                        if(currentNumber % j == 0) {
+                            isPrime = false;
+                            break;
+                        }
                     }
-                    if(answer.equals("")){
-                        answer = String.valueOf(currentNumber);
-                    }else{
-                        answer = answer + ", " + String.valueOf(currentNumber);
+                    if (isPrime) {
+                        if (answer.equals("")) {
+                            answer = String.valueOf(currentNumber);
+                        } else {
+                            answer = answer + ", " + String.valueOf(currentNumber);
+                        }
                     }
                 }
             }

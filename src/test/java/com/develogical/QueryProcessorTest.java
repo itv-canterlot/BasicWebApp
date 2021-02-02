@@ -67,7 +67,13 @@ public class QueryProcessorTest {
 
     @Test
     public void PrimesWork() throws Exception {
-        assertThat(queryProcessor.process("/api?q=c7371980: which of the%20following numbers are primes: 344, 139"), containsString("139"));
+        assertThat(queryProcessor.process("/api?q=c7371980: which of the following numbers are primes: 19, 692"), is("19"));
+    }
+
+    @Test
+    public void PrimesWork2() throws Exception{
+        assertThat(queryProcessor.process("/api?q=e854e730: which of the following numbers are primes: 199, 59, 59, 867"), is("199, 59, 59"));
+
     }
 
     @Test
