@@ -19,6 +19,12 @@ public class QueryProcessor {
                     "College Business School. ";
         } else if (query.toLowerCase().contains("what is your name")) {
             return "Which github project do we use";
+        } else if (query.toLowerCase().contains("which of the following numbers is the largest")) {
+            String[] numbers = query.split(":")[1].trim().split(", ");
+            int number1 = Integer.parseInt(numbers[0]);
+            int number2 = Integer.parseInt(numbers[1]);
+
+            return String.valueOf(Math.max(number1, number2));
         }
         return "";
     }
