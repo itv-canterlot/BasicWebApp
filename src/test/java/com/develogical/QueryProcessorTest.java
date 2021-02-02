@@ -44,4 +44,9 @@ public class QueryProcessorTest {
     public void multiplicationWorking() throws Exception{
         assertThat(queryProcessor.process("what is 13 multiplied by 8"), containsString("104"));
     }
+
+    @Test
+    public void isLargestNumberMultiple() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is the largest: 517, 30, 225"), containsString("517"));
+    }
 }
