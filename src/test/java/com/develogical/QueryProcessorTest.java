@@ -29,4 +29,10 @@ public class QueryProcessorTest {
     public void isWhatsYourNameWorking() throws Exception {
         assertThat(queryProcessor.process("what is your name"), containsString("Which github project do we use"));
     }
+
+    @Test
+    public void isLargestNumber() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is the largest: 517, 30"), containsString("517"));
+    }
+
 }
