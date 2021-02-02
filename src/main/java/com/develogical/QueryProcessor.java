@@ -37,6 +37,25 @@ public class QueryProcessor {
             return String.valueOf(Integer.parseInt(splitedQuery[3])*Integer.parseInt(splitedQuery[splitedQuery.length-1]));
         }else if (query.toLowerCase().contains("colour is a banana")){
             return "yellow";
+        }else if (query.toLowerCase().contains("primes")){
+            String[] querySplitByColon = query.split(":");
+            String[] numbers = querySplitByColon[querySplitByColon.length - 1].trim().split(", ");
+            String answer = "";
+            for (int i = 0; i < numbers.length; i++) {
+                int currentNumber = Integer.parseInt(numbers[i]);
+                if (currentNumber>=2) {
+                    for(int j = 2; j < currentNumber; j++ ){
+                        if(currentNumber % j == 0)
+                            continue;
+                    }
+                    if(answer.equals("")){
+                        answer = String.valueOf(currentNumber);
+                    }else{
+                        answer = answer + ", " + String.valueOf(currentNumber);
+                    }
+                }
+            }
+            return answer;
         }
         return "";
     }

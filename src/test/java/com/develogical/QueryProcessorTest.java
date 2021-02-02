@@ -54,4 +54,9 @@ public class QueryProcessorTest {
     public void ColourOfBanana() throws Exception {
         assertThat(queryProcessor.process("colour is a banana"), containsString("yellow"));
     }
+
+    @Test
+    public void PrimesWork() throws Exception{
+        assertThat(queryProcessor.process("/api?q=c7371980: which of the%20following numbers are primes: 344, 139"), containsString("139"));
+    }
 }
