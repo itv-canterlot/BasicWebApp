@@ -36,6 +36,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void MinusWorking() throws Exception {
+        assertThat(queryProcessor.process("2019 minus 35"), containsString("1984"));
+    }
+
+    @Test
     public void isLargestNumber() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 517, 30"), containsString("517"));
     }
