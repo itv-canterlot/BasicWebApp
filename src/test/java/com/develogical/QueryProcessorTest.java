@@ -34,4 +34,8 @@ public class QueryProcessorTest {
     public void PlusWorking() throws Exception {
         assertThat(queryProcessor.process("2019 plus 35"), containsString("2054"));
     }
+    public void isLargestNumber() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is the largest: 517, 30"), containsString("517"));
+    }
+
 }

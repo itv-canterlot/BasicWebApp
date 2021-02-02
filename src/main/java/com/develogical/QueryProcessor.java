@@ -22,6 +22,11 @@ public class QueryProcessor {
         } else if (query.toLowerCase().contains("plus")){
             String[] splitedQuery = query.split(" ");
             return String.valueOf(Integer.parseInt(splitedQuery[splitedQuery.length - 3]) + Integer.parseInt(splitedQuery[splitedQuery.length-1]));
+        } else if (query.toLowerCase().contains("which of the following numbers is the largest")) {
+            String[] numbers = query.split(":")[1].trim().split(", ");
+            int number1 = Integer.parseInt(numbers[0]);
+            int number2 = Integer.parseInt(numbers[1]);
+            return String.valueOf(Math.max(number1, number2));
         }
         return "";
     }
