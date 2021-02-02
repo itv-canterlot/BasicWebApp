@@ -34,7 +34,7 @@ public class QueryProcessor {
             return String.valueOf(Integer.parseInt(splitedQuery[splitedQuery.length - 3]) + Integer.parseInt(splitedQuery[splitedQuery.length - 1]));
         }else if (query.toLowerCase().contains("multiplied")){
             String[] splitedQuery = query.split(" ");
-            return String.valueOf(Integer.parseInt(splitedQuery[2])*Integer.parseInt(splitedQuery[splitedQuery.length-1]));
+            return String.valueOf(Integer.parseInt(splitedQuery[3])*Integer.parseInt(splitedQuery[splitedQuery.length-1]));
         }
         return "";
     }
