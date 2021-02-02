@@ -19,7 +19,12 @@ public class QueryProcessor {
                     "College Business School. ";
         } else if (query.toLowerCase().contains("what is your name")) {
             return "Which github project do we use";
+        } else if (query.toLowerCase().contains("plus")){
+            String[] splitedQuery = query.split(" ");
+            return String.valueOf(Integer.parseInt(splitedQuery[splitedQuery.length - 3]) + Integer.parseInt(splitedQuery[splitedQuery.length-1]));
         }
         return "";
     }
+
+
 }

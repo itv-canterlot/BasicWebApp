@@ -29,4 +29,9 @@ public class QueryProcessorTest {
     public void isWhatsYourNameWorking() throws Exception {
         assertThat(queryProcessor.process("what is your name"), containsString("Which github project do we use"));
     }
+
+    @Test
+    public void PlusWorking() throws Exception {
+        assertThat(queryProcessor.process("2019 plus 35"), containsString("2054"));
+    }
 }
