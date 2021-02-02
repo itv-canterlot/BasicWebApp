@@ -53,6 +53,12 @@ public class QueryProcessorTest {
     public void squareAndCube() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is a square and a cube: 3, 64"), containsString("64"));
     }
+    @Test
+    public void squareAndCube2() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is a square and a cube: 225, 64, 3"), containsString("64"));
+
+        assertThat(queryProcessor.process("which of the following numbers is a square and a cube: 225, 64"), containsString("225"));
+    }
 
     @Test
     public void ColourOfBanana() throws Exception {

@@ -44,15 +44,22 @@ public class QueryProcessor {
         String[] querySplitByColon = query.split(":");
         String[] numbers = querySplitByColon[querySplitByColon.length - 1].trim().split(", ");
 
+        String returnString = "";
 
         for(int i=0; i<numbers.length;i++) {
             double sr = Math.sqrt(Integer.parseInt(numbers[i]));
             double qr = Math.cbrt(Integer.parseInt(numbers[i]));
             if (sr * sr == Integer.parseInt(numbers[i]) && ((qr * qr * qr) == Integer.parseInt(numbers[i]))) {
-                return String.valueOf(Integer.parseInt(numbers[i]));
+                returnString+=Integer.parseInt(numbers[i]) + ",";
 
             }
         }
+
+            if (returnString != null && returnString.length() > 0 && returnString.charAt(returnString.length() - 1) == ',') {
+                returnString = returnString.substring(0, returnString.length() - 1);
+            }
+        return returnString;
+
            }else if (query.toLowerCase().contains("multiplied")){
             String[] splitedQuery = query.split(" ");
             return String.valueOf(Integer.parseInt(splitedQuery[3])*Integer.parseInt(splitedQuery[splitedQuery.length-1]));
