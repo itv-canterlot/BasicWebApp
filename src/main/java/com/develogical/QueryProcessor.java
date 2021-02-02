@@ -60,6 +60,8 @@ public class QueryProcessor {
             return "yellow";
         } else if (query.toLowerCase().contains("which year was theresa may first elected as the prime minister of great britain")) {
             return "2016";
+        } else if (query.toLowerCase().contains("eiffel tower")) {
+            return "Paris";
         }
 
         return "";

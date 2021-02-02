@@ -64,4 +64,10 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("07858240: which year was Theresa May first elected as the Prime Minister of Great Britain"), containsString("2016"));
 
     }
+
+    @Test
+    public void EiffelTower() throws Exception {
+        assertThat(queryProcessor.process("1d1bb6c0: which city is the Eiffel tower in"), containsString("Paris"));
+
+    }
 }
