@@ -58,6 +58,8 @@ public class QueryProcessor {
             return String.valueOf(Integer.parseInt(splitedQuery[3])*Integer.parseInt(splitedQuery[splitedQuery.length-1]));
         }else if (query.toLowerCase().contains("colour is a banana")){
             return "yellow";
+        } else if (query.toLowerCase().contains("which year was theresa may first elected as the prime minister of great britain")) {
+            return "2016";
         }
 
         return "";

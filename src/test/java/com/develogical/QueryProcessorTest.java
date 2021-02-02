@@ -58,4 +58,10 @@ public class QueryProcessorTest {
     public void ColourOfBanana() throws Exception {
         assertThat(queryProcessor.process("colour is a banana"), containsString("yellow"));
     }
+
+    @Test
+    public void theresaMay() throws Exception {
+        assertThat(queryProcessor.process("07858240: which year was Theresa May first elected as the Prime Minister of Great Britain"), containsString("2016"));
+
+    }
 }
