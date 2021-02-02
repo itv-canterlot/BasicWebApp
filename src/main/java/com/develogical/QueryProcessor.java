@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.util.Arrays;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -28,11 +30,37 @@ public class QueryProcessor {
                     largestNumber = Integer.parseInt(numbers[i]);
                 }
             }
+
             return String.valueOf(largestNumber);
         } else if (query.toLowerCase().contains("plus")){
             String[] splitedQuery = query.split(" ");
-            return String.valueOf(Integer.parseInt(splitedQuery[splitedQuery.length - 3]) + Integer.parseInt(splitedQuery[splitedQuery.length - 1]));
-        }else if (query.toLowerCase().contains("multiplied")){
+            return String.valueOf(Integer.parseInt(splitedQuery[splitedQuery.length - 3]) + Integer.parseInt(splitedQuery[splitedQuery.length-1]));
+        } else if (query.toLowerCase().contains("which of the following numbers is the largest")) {
+            String[] numbers = query.split(":")[1].trim().split(", ");
+            int number1 = Integer.parseInt(numbers[0]);
+            int number2 = Integer.parseInt(numbers[1]);
+            return String.valueOf(Math.max(number1, number2));
+        } else if (query.toLowerCase().contains("square and a cube")) {
+        String[] querySplitByColon = query.split(":");
+        String[] numbers = querySplitByColon[querySplitByColon.length - 1].trim().split(", ");
+
+        String returnString = "";
+
+        for(int i=0; i<numbers.length;i++) {
+            double sr = Math.sqrt(Integer.parseInt(numbers[i]));
+            double qr = Math.cbrt(Integer.parseInt(numbers[i]));
+            if (sr * sr == Integer.parseInt(numbers[i]) && ((qr * qr * qr) == Integer.parseInt(numbers[i]))) {
+                returnString+=Integer.parseInt(numbers[i]) + ",";
+
+            }
+        }
+
+            if (returnString != null && returnString.length() > 0 && returnString.charAt(returnString.length() - 1) == ',') {
+                returnString = returnString.substring(0, returnString.length() - 1);
+            }
+        return returnString;
+
+           }else if (query.toLowerCase().contains("multiplied")){
             String[] splitedQuery = query.split(" ");
             return String.valueOf(Integer.parseInt(splitedQuery[3])*Integer.parseInt(splitedQuery[splitedQuery.length-1]));
         }else if (query.toLowerCase().contains("colour is a banana")){
@@ -56,7 +84,12 @@ public class QueryProcessor {
                 }
             }
             return answer;
+        } else if (query.toLowerCase().contains("which year was theresa may first elected as the prime minister of great britain")) {
+            return "2016";
+        } else if (query.toLowerCase().contains("eiffel tower")) {
+            return "Paris";
         }
+
         return "";
     }
 }

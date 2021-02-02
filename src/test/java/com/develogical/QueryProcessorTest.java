@@ -49,6 +49,16 @@ public class QueryProcessorTest {
     public void isLargestNumberMultiple() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 517, 30, 225"), containsString("517"));
     }
+    @Test
+    public void squareAndCube() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is a square and a cube: 3, 64"), containsString("64"));
+    }
+    @Test
+    public void squareAndCube2() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is a square and a cube: 225, 64, 3"), containsString("64"));
+
+        assertThat(queryProcessor.process("which of the following numbers is a square and a cube: 225, 64"), containsString("225"));
+    }
 
     @Test
     public void ColourOfBanana() throws Exception {
@@ -56,7 +66,18 @@ public class QueryProcessorTest {
     }
 
     @Test
-    public void PrimesWork() throws Exception{
+    public void PrimesWork() throws Exception {
         assertThat(queryProcessor.process("/api?q=c7371980: which of the%20following numbers are primes: 344, 139"), containsString("139"));
+    }
+
+    @Test
+    public void theresaMay() throws Exception {
+        assertThat(queryProcessor.process("07858240: which year was Theresa May first elected as the Prime Minister of Great Britain"), containsString("2016"));
+
+    }
+
+    @Test
+    public void EiffelTower() throws Exception {
+        assertThat(queryProcessor.process("1d1bb6c0: which city is the Eiffel tower in"), containsString("Paris"));
     }
 }
